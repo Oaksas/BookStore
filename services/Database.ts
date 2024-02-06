@@ -7,6 +7,7 @@ export const sequelize = new Sequelize({
     username: 'postgres',
     password: 'root',
     database: 'bookstore',
+
 });
 
 const initDatabase = async (): Promise<void> => {
