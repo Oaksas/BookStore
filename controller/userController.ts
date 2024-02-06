@@ -15,7 +15,30 @@ export default {
         
             res.status(201).json(userResponse);        } catch (error) {
             console.error(error);
-            res.status(500).send('Internal Server Error');
+            res.status(500).send('Failed to create user');
+        }
+    },
+
+    loginUser: async (req: Request, res: Response) => {
+        try {
+            const { username, password }: CreateUserDTO = req.body;
+            const user = await UserService.loginUser(username, password);
+            if (user){
+                  const userResponse: UserResponseDTO = {
+                id: user.id,
+                username: user.username,
+                points: user.points,
+              };
+        
+            res.status(200).json(userResponse);
+            }
+            else {
+                res.status(404).send('Incorrect username or password ');
+            }
+          
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Failed to login user');
         }
     },
 
@@ -31,7 +54,7 @@ export default {
             }
         } catch (error) {
             console.error(error);
-            res.status(500).send('Internal Server Error');
+            res.status(500).send('Failed to get user');
         }
     },
 
@@ -48,7 +71,7 @@ export default {
             }
         } catch (error) {
             console.error(error);
-            res.status(500).send('Internal Server Error');
+            res.status(500).send('failed to update user');
         }
     },
 
@@ -59,7 +82,7 @@ export default {
             res.status(204).send();
         } catch (error) {
             console.error(error);
-            res.status(500).send('Internal Server Error');
+            res.status(500).send('failed to delete user');
         }
     },
 };

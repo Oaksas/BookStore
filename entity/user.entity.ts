@@ -12,11 +12,17 @@ export interface UserResponseDTO {
     username: string;
     points: number;
   }
+
+export interface UserLoginDTO {
+    username: string;
+    password: string;
+}
   
 class User extends Model {
     public id!: number;
     public username!: string;
     public points!: number;
+    public password!: string;
 }
 
 User.init(

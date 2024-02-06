@@ -13,6 +13,16 @@ export default {
         }
     },
 
+    loginUser: async (username: string, password: string): Promise<User | null> => {
+        try {
+            const user = await UserRepository.loginUser(username, password);
+            return user;
+        } catch (error) {
+            console.error(error);
+            throw new Error('Failed to login user');
+        }
+    },
+
     getUserById: async (userId: number): Promise<User | null> => {
         try {
             const user = await UserRepository.getUserById(userId);
