@@ -1,3 +1,4 @@
+import { BookUpdateDTO } from "../entity/book.entity";
 import bookRepository from "../repository/bookRepository";
 
 export default {
@@ -21,10 +22,10 @@ export default {
     }
   },
 
-  updateBook: async (bookId: number, title: string, author: string, price: number) => {
+  updateBook: async (bookId: number, updateData: BookUpdateDTO) => {
     try {
-      const book = await bookRepository.updateBook(bookId, title, author, price);
-      return book;
+        const book = await bookRepository.updateBook(bookId, updateData);
+        return book;
     } catch (error) {
       console.error(error);
       throw new Error('Failed to update book');

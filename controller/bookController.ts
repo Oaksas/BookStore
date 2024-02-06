@@ -1,6 +1,7 @@
 
 import { Request, Response } from 'express';
 import BookService from '../services/bookService';
+import { BookUpdateDTO } from '../entity/book.entity';
 
 export default {
   createBook: async (req: Request, res: Response) => {
@@ -33,8 +34,8 @@ export default {
   updateBook: async (req: Request, res: Response) => {
     try {
       const bookId = parseInt(req.params.bookId, 10);
-      const { title, author, price } = req.body;
-      const book = await BookService.updateBook(bookId, title, author, price);
+      const payload:BookUpdateDTO = req.body;
+      const book = await BookService.updateBook(bookId,payload );
 
       if (book) {
         res.status(200).json(book);
