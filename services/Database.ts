@@ -13,7 +13,6 @@ const initDatabase = async (): Promise<void> => {
     try {
         await sequelize.authenticate();
         console.log('Connection to the database has been established successfully.');
-        // Add synchronization or migration logic here if needed
     } catch (error) {
         console.error('Unable to connect to the database:', error);
         throw error;
