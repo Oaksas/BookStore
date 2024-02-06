@@ -1,13 +1,19 @@
 import { Request, Response } from 'express';
 import UserService from '../services/userService';
+import { CreateUserDTO, UserResponseDTO } from '../entity/user.entity';
 
 export default {
     createUser: async (req: Request, res: Response) => {
         try {
-            const { username, password } = req.body;
+            const { username, password }: CreateUserDTO = req.body;
             const user = await UserService.createUser(username, password);
-            res.status(201).json(user);
-        } catch (error) {
+            const userResponse: UserResponseDTO = {
+                id: user.id,
+                username: user.username,
+                points: user.points,
+              };
+        
+            res.status(201).json(userResponse);        } catch (error) {
             console.error(error);
             res.status(500).send('Internal Server Error');
         }

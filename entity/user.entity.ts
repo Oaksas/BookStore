@@ -1,6 +1,18 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../services/Database';
 
+
+export interface CreateUserDTO {
+    username: string;
+    password: string;
+}
+
+export interface UserResponseDTO {
+    id: number;
+    username: string;
+    points: number;
+  }
+  
 class User extends Model {
     public id!: number;
     public username!: string;
