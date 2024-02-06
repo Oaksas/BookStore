@@ -3,10 +3,10 @@ import { Sequelize } from 'sequelize';
 export const sequelize = new Sequelize({
     dialect: 'postgres',
     host: process.env.DB_HOST,
-    port: 5432,
-    username: 'postgres',
-    password: 'root',
-    database: 'bookstore',
+    port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE,
 
 });
 
