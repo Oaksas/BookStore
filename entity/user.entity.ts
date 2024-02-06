@@ -18,6 +18,10 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         points: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -27,7 +31,7 @@ User.init(
     {
         sequelize,
         modelName: 'User',
-        tableName: 'users', // Adjust the table name as needed
+        tableName: 'Users', // Adjust the table name as needed
     }
 );
 

@@ -1,4 +1,4 @@
-import Order from '../entity/OrderEntity';
+import Order from '../entity/order.entity';
 import OrderRepository from '../repository/orderRepository';
 
 export default {

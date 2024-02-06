@@ -31,7 +31,7 @@ Order.init(
     {
         sequelize,
         modelName: 'Order',
-        tableName: 'orders', // Adjust the table name as needed
+        tableName: 'Orders', // Adjust the table name as needed
     }
 );
 
