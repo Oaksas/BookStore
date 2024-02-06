@@ -1,0 +1,31 @@
+ 
+# Node.js
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+*.tsbuildinfo.*
+
+# Output
+dist/
+build/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and Dumps
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
