@@ -1,5 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../services/Database';
+import User from './user.entity';
+import Book from './book.entity';
 
 class Order extends Model {
     public id!: number;
@@ -18,10 +20,18 @@ Order.init(
         customerId: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: User,
+                key: 'id',   
+            },
         },
         bookId: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: Book,
+                key: 'id',   
+            },
         },
         quantity: {
             type: DataTypes.INTEGER,
@@ -31,7 +41,7 @@ Order.init(
     {
         sequelize,
         modelName: 'Order',
-        tableName: 'Orders', // Adjust the table name as needed
+        tableName: 'Orders', 
     }
 );
 
