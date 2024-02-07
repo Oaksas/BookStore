@@ -51,4 +51,25 @@ export default {
             throw new Error('Failed to delete user');
         }
     },
+
+    reducePoints: async (userId: number, amount: number) => {
+        try {
+            const user = await User.findByPk(userId);
+
+            if (user) {
+                // Check if the user has enough points before reducing
+                if (user.points >= amount) {
+                    user.points -= amount;
+                    await user.save();
+                } else {
+                    throw new Error('Insufficient balance');
+                }
+            } else {
+                throw new Error('User not found');
+            }
+        } catch (error) {
+            console.error(error);
+            throw new Error('Failed to reduce points');
+        }
+    },
 };
