@@ -30,12 +30,21 @@ export default {
       res.status(500).send('Failed to get book');
     }
   },
+  getAllBooks: async (req: Request, res: Response) => {
+    try {
+      const books = await BookService.getAllBooks();
+      res.status(200).json(books);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Failed to get books');
+    }
+  },
 
   updateBook: async (req: Request, res: Response) => {
     try {
       const bookId = parseInt(req.params.bookId, 10);
-      const payload:BookUpdateDTO = req.body;
-      const book = await BookService.updateBook(bookId,payload );
+      const payload: BookUpdateDTO = req.body;
+      const book = await BookService.updateBook(bookId, payload);
 
       if (book) {
         res.status(200).json(book);

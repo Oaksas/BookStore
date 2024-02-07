@@ -21,22 +21,31 @@ export default {
     }
   },
 
+  getAllBooks: async () => {
+    try {
+      const books = await Book.findAll();
+      return books;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to get books');
+    }
+  },
   updateBook: async (bookId: number, updateData: BookUpdateDTO) => {
     try {
       const book = await Book.findByPk(bookId);
 
       if (book) {
-            // Update book attributes based on the provided updateData
-            if (updateData.title) {
-              book.title = updateData.title;
-            }
-            if (updateData.author) {
-              book.author = updateData.author;
-            }
-            if (updateData.price) {
-              book.price = updateData.price;
-            }
-    
+        // Update book attributes based on the provided updateData
+        if (updateData.title) {
+          book.title = updateData.title;
+        }
+        if (updateData.author) {
+          book.author = updateData.author;
+        }
+        if (updateData.price) {
+          book.price = updateData.price;
+        }
+
         await book.save();
         return book;
       } else {

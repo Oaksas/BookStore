@@ -22,10 +22,20 @@ export default {
     }
   },
 
+  getAllBooks: async () => {
+    try {
+      const books = await bookRepository.getAllBooks();
+      return books;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to get books');
+    }
+  },
+
   updateBook: async (bookId: number, updateData: BookUpdateDTO) => {
     try {
-        const book = await bookRepository.updateBook(bookId, updateData);
-        return book;
+      const book = await bookRepository.updateBook(bookId, updateData);
+      return book;
     } catch (error) {
       console.error(error);
       throw new Error('Failed to update book');
