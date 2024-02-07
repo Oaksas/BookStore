@@ -164,6 +164,8 @@ The server will be running on `http://localhost:3000`.
     {
       "title": "Example Book",
       "author": "John Doe",
+      "tags":["fiction","fantasy"],
+      "rating":3.4,
       "price": 19.99
     }
     ```
@@ -178,6 +180,7 @@ The server will be running on `http://localhost:3000`.
     {
       "title": "Updated Title",
       "author": "Updated Author",
+      "rating":"updated rating",
       "price": 24.99
     }
     ```
@@ -197,6 +200,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Make sure to add detailed information about your API endpoints, expected request and response formats, and any other relevant details in the [docs](./docs) folder or elsewhere in the project structure. Update the configuration section with accurate instructions for setting up and configuring the project locally.
+``
