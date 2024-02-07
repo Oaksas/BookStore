@@ -46,7 +46,7 @@ export default {
                 include: [
                     {
                         model: Book,
-                        attributes: ['id', 'title', 'author'], // Specify the book details you want to retrieve
+                        attributes: ['id', 'title', 'author', 'price'], // Specify the book details you want to retrieve
                     },
                 ],
             });
