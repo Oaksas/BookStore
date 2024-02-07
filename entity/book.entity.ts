@@ -5,7 +5,8 @@ export interface BookUpdateDTO {
     title?: string;
     author?: string;
     price?: number;
-    tags?: string;
+    rating?: number;
+    tags?: [string];
 }
 
 class Book extends Model {
@@ -13,7 +14,8 @@ class Book extends Model {
     public title!: string;
     public author!: string;
     public price!: number;
-    public tags!: string;
+    public rating!: number;
+    public tags!: [string];
 }
 
 
@@ -36,9 +38,15 @@ Book.init(
             type: DataTypes.FLOAT,
             allowNull: false,
         },
-        tags: {
-            type: DataTypes.STRING,
+        rating: {
+            type: DataTypes.INTEGER,
             allowNull: true,
+        },
+        tags: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+
+
         },
     },
     {

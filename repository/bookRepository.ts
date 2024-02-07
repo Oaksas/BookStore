@@ -1,9 +1,9 @@
 import Book, { BookUpdateDTO } from "../entity/book.entity";
 
 export default {
-  createBook: async (title: string, author: string, price: number, tags: string) => {
+  createBook: async (title: string, author: string, price: number, tags: [string], rating: number) => {
     try {
-      const book = await Book.create({ title, author, price, tags });
+      const book = await Book.create({ title, author, price, tags, rating });
       return book;
     } catch (error) {
       console.error(error);
@@ -45,7 +45,9 @@ export default {
         if (updateData.price) {
           book.price = updateData.price;
         }
-
+        if (updateData.rating) {
+          book.rating = updateData.rating;
+        }
         await book.save();
         return book;
       } else {

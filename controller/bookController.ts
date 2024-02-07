@@ -6,8 +6,8 @@ import { BookUpdateDTO } from '../entity/book.entity';
 export default {
   createBook: async (req: Request, res: Response) => {
     try {
-      const { title, author, price, tags } = req.body;
-      const book = await BookService.createBook(title, author, price, tags);
+      const { title, author, price, tags, rating } = req.body;
+      const book = await BookService.createBook(title, author, price, tags, rating);
       res.status(201).json(book);
     } catch (error) {
       console.error(error);
