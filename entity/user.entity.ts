@@ -42,7 +42,7 @@ User.init(
             allowNull: false,
         },
         points: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: false,
             defaultValue: 100, // Default value for new customers
         },
