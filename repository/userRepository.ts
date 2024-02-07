@@ -20,6 +20,7 @@ export default {
             const user = await User.create({ username, password });
             return user;
         } catch (error) {
+
             throw new Error('Failed to create user');
         }
     },
@@ -51,6 +52,7 @@ export default {
             const user = await User.findByPk(userId, options);
             return user;
         } catch (error) {
+
             throw new Error('Failed to get user');
         }
     },

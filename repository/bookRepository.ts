@@ -44,6 +44,7 @@ export default {
         if (updateData.rating) {
           book.rating = updateData.rating;
         }
+
         await book.save();
         return book;
       } else {

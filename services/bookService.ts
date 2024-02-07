@@ -7,6 +7,7 @@ export default {
       const book = await bookRepository.createBook(title, author, price, tags, rating);
       return book;
     } catch (error) {
+
       throw new Error('Failed to create book');
     }
   },
@@ -25,6 +26,7 @@ export default {
       const books = await bookRepository.getAllBooks();
       return books;
     } catch (error) {
+
       throw new Error('Failed to get books');
     }
   },
