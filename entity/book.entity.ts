@@ -39,7 +39,7 @@ Book.init(
             allowNull: false,
         },
         rating: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: true,
         },
         tags: {

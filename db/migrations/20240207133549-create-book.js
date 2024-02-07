@@ -21,6 +21,9 @@ module.exports = {
       tags: {
         type: Sequelize.STRING
       },
+      rating: {
+        type: Sequelize.FLOAT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
