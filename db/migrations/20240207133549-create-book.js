@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       tags: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       rating: {
         type: Sequelize.FLOAT
