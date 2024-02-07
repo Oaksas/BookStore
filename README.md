@@ -188,6 +188,9 @@ The server will be running on `http://localhost:3000`.
 - **Delete Book:**
   - Endpoint: `DELETE /books/:bookId`
 
+## Note
+
+config file contains password credentials . I put it for ease of access and test functionality only. Do not push this file to github for real projects.
 
 ## Documentation
 
