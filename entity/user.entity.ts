@@ -1,6 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../services/Database';
-import Order from './order.entity';
 
 
 export interface CreateUserDTO {
@@ -44,13 +43,13 @@ User.init(
         points: {
             type: DataTypes.FLOAT,
             allowNull: false,
-            defaultValue: 100, // Default value for new customers
+            defaultValue: 100,
         },
     },
     {
         sequelize,
         modelName: 'User',
-        tableName: 'Users', // Adjust the table name as needed
+        tableName: 'Users',
     }
 );
 

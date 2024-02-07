@@ -4,11 +4,10 @@ import { Op } from 'sequelize';
 export default {
     createUser: async (username: string, password: string): Promise<User> => {
         try {
-            // Check if a user with the same username already exists
             const existingUser = await User.findOne({
                 where: {
                     username: {
-                        [Op.iLike]: username, // Case-insensitive comparison
+                        [Op.iLike]: username,
                     },
                 },
             });
@@ -17,12 +16,10 @@ export default {
                 throw new Error('Username already exists');
             }
 
-            // Create the user if it doesn't exist          
 
             const user = await User.create({ username, password });
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to create user');
         }
     },
@@ -45,7 +42,6 @@ export default {
             }
             return null;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to login user');
         }
     },
@@ -55,7 +51,6 @@ export default {
             const user = await User.findByPk(userId, options);
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to get user');
         }
     },
@@ -72,7 +67,6 @@ export default {
                 throw new Error('User not found');
             }
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to update user');
         }
     },
@@ -87,7 +81,6 @@ export default {
                 throw new Error('User not found');
             }
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to delete user');
         }
     },

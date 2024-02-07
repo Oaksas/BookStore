@@ -10,7 +10,6 @@ export default {
       const book = await BookService.createBook(title, author, price, tags, rating);
       res.status(201).json(book);
     } catch (error) {
-      console.error(error);
       res.status(500).send('Failed to create book');
     }
   },
@@ -26,7 +25,6 @@ export default {
         res.status(404).send('Book not found');
       }
     } catch (error) {
-      console.error(error);
       res.status(500).send('Failed to get book');
     }
   },
@@ -35,7 +33,6 @@ export default {
       const books = await BookService.getAllBooks();
       res.status(200).json(books);
     } catch (error) {
-      console.error(error);
       res.status(500).send('Failed to get books');
     }
   },
@@ -52,7 +49,6 @@ export default {
         res.status(404).send('Book not found');
       }
     } catch (error) {
-      console.error(error);
       res.status(500).send('Failed to update book');
     }
   },
@@ -63,7 +59,6 @@ export default {
       await BookService.deleteBook(bookId);
       res.status(204).send();
     } catch (error) {
-      console.error(error);
       res.status(500).send('Failed to delete book');
     }
   },

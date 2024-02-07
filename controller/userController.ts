@@ -17,7 +17,6 @@ export default {
 
             res.status(201).json(userResponse);
         } catch (error) {
-            console.error(error);
             res.status(500).send('Failed to create user');
         }
     },
@@ -40,7 +39,6 @@ export default {
             }
 
         } catch (error) {
-            console.error(error);
             res.status(500).send('Failed to login user');
         }
     },
@@ -56,7 +54,6 @@ export default {
                 res.status(404).send('User not found');
             }
         } catch (error) {
-            console.error(error);
             res.status(500).send('Failed to get user');
         }
     },
@@ -73,7 +70,6 @@ export default {
                 res.status(404).send('User not found');
             }
         } catch (error) {
-            console.error(error);
             res.status(500).send('failed to update user');
         }
     },
@@ -84,12 +80,10 @@ export default {
             await UserService.deleteUser(userId);
             res.status(204).send();
         } catch (error) {
-            console.error(error);
             res.status(500).send('failed to delete user');
         }
     },
 
-    // Assuming you have a model for User and Order, and UserRepository with methods like getUserById
 
     getOrders: async (req: Request, res: Response) => {
         try {
@@ -97,7 +91,6 @@ export default {
             const user = await userRepository.getUserById(userId);
 
             if (user) {
-                // Assuming you have a method in OrderRepository to fetch orders by user ID
                 const orders = await orderRepository.getOrderbyCustomerId(userId);
 
                 res.status(200).json(orders);
@@ -105,7 +98,6 @@ export default {
                 res.status(404).send('User not found');
             }
         } catch (error) {
-            console.error(error);
             res.status(500).send('Failed to get orders');
         }
     }

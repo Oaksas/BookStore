@@ -5,7 +5,6 @@ import bookRoutes from './BookRoute';
 
 const router = express.Router();
 
-// Use the individual route files
 router.use('/orders', orderRoutes);
 router.use('/users', userRoutes);
 router.use('/books', bookRoutes);

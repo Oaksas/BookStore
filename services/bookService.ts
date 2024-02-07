@@ -7,7 +7,6 @@ export default {
       const book = await bookRepository.createBook(title, author, price, tags, rating);
       return book;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to create book');
     }
   },
@@ -17,7 +16,6 @@ export default {
       const book = await bookRepository.getBookById(bookId);
       return book;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to get book');
     }
   },
@@ -27,7 +25,6 @@ export default {
       const books = await bookRepository.getAllBooks();
       return books;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to get books');
     }
   },
@@ -37,7 +34,6 @@ export default {
       const book = await bookRepository.updateBook(bookId, updateData);
       return book;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to update book');
     }
   },
@@ -46,7 +42,6 @@ export default {
     try {
       await bookRepository.deleteBook(bookId);
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to delete book');
     }
   },

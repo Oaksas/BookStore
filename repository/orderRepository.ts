@@ -7,7 +7,6 @@ export default {
             const order = await Order.create({ customerId, bookId, quantity });
             return order;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to create order');
         }
     },
@@ -17,7 +16,6 @@ export default {
             const order = await Order.findByPk(orderId);
             return order;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to get order');
         }
     },
@@ -32,7 +30,6 @@ export default {
                 throw new Error('Order not found');
             }
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to cancel order');
         }
     },
@@ -46,13 +43,12 @@ export default {
                 include: [
                     {
                         model: Book,
-                        attributes: ['id', 'title', 'author', 'price'], // Specify the book details you want to retrieve
+                        attributes: ['id', 'title', 'author', 'price'],
                     },
                 ],
             });
             return orders;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to get orders');
         }
     }

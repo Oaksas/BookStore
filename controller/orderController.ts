@@ -8,7 +8,6 @@ export default {
             const order = await OrderService.createOrder(customerId, bookId, quantity);
             res.status(201).json(order);
         } catch (error) {
-            console.error(error);
             res.status(500).send('Internal Server Error');
         }
     },
@@ -24,7 +23,6 @@ export default {
                 res.status(404).send('Order not found');
             }
         } catch (error) {
-            console.error(error);
             res.status(500).send('Internal Server Error');
         }
     },
@@ -35,7 +33,6 @@ export default {
             await OrderService.cancelOrder(orderId);
             res.status(204).send();
         } catch (error) {
-            console.error(error);
             res.status(500).send('Internal Server Error');
         }
     },

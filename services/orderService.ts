@@ -21,15 +21,11 @@ export default {
             }
             await userService.reducePoints(customerId, totalPrice);
 
-
-
-
             const order = await OrderRepository.createOrder(customerId, bookId, quantity);
 
 
             return order;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to create order');
         }
     },
@@ -39,7 +35,6 @@ export default {
             const order = await OrderRepository.getOrderById(orderId);
             return order;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to get order');
         }
     },
@@ -48,7 +43,6 @@ export default {
         try {
             await OrderRepository.cancelOrder(orderId);
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to cancel order');
         }
     },

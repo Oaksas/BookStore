@@ -6,7 +6,6 @@ export default {
       const book = await Book.create({ title, author, price, tags, rating });
       return book;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to create book');
     }
   },
@@ -16,7 +15,6 @@ export default {
       const book = await Book.findByPk(bookId);
       return book;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to get book');
     }
   },
@@ -26,7 +24,6 @@ export default {
       const books = await Book.findAll();
       return books;
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to get books');
     }
   },
@@ -35,7 +32,6 @@ export default {
       const book = await Book.findByPk(bookId);
 
       if (book) {
-        // Update book attributes based on the provided updateData
         if (updateData.title) {
           book.title = updateData.title;
         }
@@ -54,7 +50,6 @@ export default {
         throw new Error('Book not found');
       }
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to update book');
     }
   },
@@ -69,7 +64,6 @@ export default {
         throw new Error('Book not found');
       }
     } catch (error) {
-      console.error(error);
       throw new Error('Failed to delete book');
     }
   },

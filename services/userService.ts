@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import UserRepository from '../repository/userRepository';
 import User from '../entity/user.entity';
 
@@ -8,7 +7,6 @@ export default {
             const user = await UserRepository.createUser(username, password);
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to create user');
         }
     },
@@ -18,7 +16,6 @@ export default {
             const user = await UserRepository.loginUser(username, password);
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to login user');
         }
     },
@@ -28,7 +25,6 @@ export default {
             const user = await UserRepository.getUserById(userId);
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to get user');
         }
     },
@@ -38,7 +34,6 @@ export default {
             const user = await UserRepository.updateUser(userId, username);
             return user;
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to update user');
         }
     },
@@ -47,7 +42,6 @@ export default {
         try {
             await UserRepository.deleteUser(userId);
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to delete user');
         }
     },
@@ -57,7 +51,6 @@ export default {
             const user = await User.findByPk(userId);
 
             if (user) {
-                // Check if the user has enough points before reducing
                 if (user.points >= amount) {
                     user.points -= amount;
                     await user.save();
@@ -68,7 +61,6 @@ export default {
                 throw new Error('User not found');
             }
         } catch (error) {
-            console.error(error);
             throw new Error('Failed to reduce points');
         }
     },
