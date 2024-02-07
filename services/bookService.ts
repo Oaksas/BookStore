@@ -2,9 +2,9 @@ import { BookUpdateDTO } from "../entity/book.entity";
 import bookRepository from "../repository/bookRepository";
 
 export default {
-  createBook: async (title: string, author: string, price: number) => {
+  createBook: async (title: string, author: string, price: number, tags: string) => {
     try {
-      const book = await bookRepository.createBook(title, author, price);
+      const book = await bookRepository.createBook(title, author, price, tags);
       return book;
     } catch (error) {
       console.error(error);

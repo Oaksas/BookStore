@@ -5,6 +5,7 @@ export interface BookUpdateDTO {
     title?: string;
     author?: string;
     price?: number;
+    tags?: string;
 }
 
 class Book extends Model {
@@ -12,6 +13,7 @@ class Book extends Model {
     public title!: string;
     public author!: string;
     public price!: number;
+    public tags!: string;
 }
 
 
@@ -33,6 +35,10 @@ Book.init(
         price: {
             type: DataTypes.FLOAT,
             allowNull: false,
+        },
+        tags: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
     },
     {
