@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../services/Database';
+import Order from './order.entity';
 
 
 export interface CreateUserDTO {
@@ -11,13 +12,13 @@ export interface UserResponseDTO {
     id: number;
     username: string;
     points: number;
-  }
+}
 
 export interface UserLoginDTO {
     username: string;
     password: string;
 }
-  
+
 class User extends Model {
     public id!: number;
     public username!: string;

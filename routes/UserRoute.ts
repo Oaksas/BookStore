@@ -9,6 +9,8 @@ router.get('/:userId', userController.getUser);
 router.post('/login', userController.loginUser);
 router.put('/:userId', userController.updateUser);
 router.delete('/:userId', userController.deleteUser);
+router.get('/:userId/orders', userController.getOrders);
+
 // Add other user-related routes as needed
 
 export default router;

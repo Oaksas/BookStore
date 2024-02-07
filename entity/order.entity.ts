@@ -22,7 +22,7 @@ Order.init(
             allowNull: false,
             references: {
                 model: User,
-                key: 'id',   
+                key: 'id',
             },
         },
         bookId: {
@@ -30,7 +30,7 @@ Order.init(
             allowNull: false,
             references: {
                 model: Book,
-                key: 'id',   
+                key: 'id',
             },
         },
         quantity: {
@@ -41,7 +41,7 @@ Order.init(
     {
         sequelize,
         modelName: 'Order',
-        tableName: 'Orders', 
+        tableName: 'Orders',
     }
 );
 

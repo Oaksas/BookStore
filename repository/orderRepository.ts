@@ -35,4 +35,19 @@ export default {
             throw new Error('Failed to cancel order');
         }
     },
+
+    getOrderbyCustomerId: async (customerId: number): Promise<Order[]> => {
+        try {
+            const orders = await Order.findAll({
+                where: {
+                    customerId,
+                },
+            });
+            return orders;
+        } catch (error) {
+            console.error(error);
+            throw new Error('Failed to get orders');
+        }
+    }
+
 };

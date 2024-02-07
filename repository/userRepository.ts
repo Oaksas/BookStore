@@ -12,11 +12,11 @@ export default {
                     },
                 },
             });
-    
+
             if (existingUser) {
                 throw new Error('Username already exists');
             }
-    
+
             // Create the user if it doesn't exist          
 
             const user = await User.create({ username, password });
@@ -36,7 +36,7 @@ export default {
                     },
                 },
             });
-        
+
             if (user) {
                 const isPasswordValid = password === user.password
                 if (isPasswordValid) {
@@ -50,9 +50,9 @@ export default {
         }
     },
 
-    getUserById: async (userId: number): Promise<User | null> => {
+    getUserById: async (userId: number, options?: any): Promise<User | null> => {
         try {
-            const user = await User.findByPk(userId);
+            const user = await User.findByPk(userId, options);
             return user;
         } catch (error) {
             console.error(error);

@@ -72,4 +72,6 @@ export default {
             throw new Error('Failed to reduce points');
         }
     },
+
+
 };
