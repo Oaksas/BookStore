@@ -1,3 +1,4 @@
+import Book from '../entity/book.entity';
 import Order from '../entity/order.entity';
 
 export default {
@@ -42,6 +43,12 @@ export default {
                 where: {
                     customerId,
                 },
+                include: [
+                    {
+                        model: Book,
+                        attributes: ['id', 'title', 'author'], // Specify the book details you want to retrieve
+                    },
+                ],
             });
             return orders;
         } catch (error) {

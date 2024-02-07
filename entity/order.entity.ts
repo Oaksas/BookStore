@@ -44,5 +44,7 @@ Order.init(
         tableName: 'Orders',
     }
 );
+Order.belongsTo(Book, { foreignKey: 'bookId' });
+
 
 export default Order;
